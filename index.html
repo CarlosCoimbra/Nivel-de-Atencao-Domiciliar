@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instrumento de Avaliação da Elegibilidade e Complexidade da Atenção Domiciliar (IAEC-AD)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        h1 {
+            color: #007bff;
+            font-size: 1.8em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #007bff;
+            font-size: 1.5em;
+            margin-top: 30px;
+        }
+        .subtext {
+            font-size: 0.9em;
+            color: #777;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section-title {
+            color: #007bff;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        .options {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        .options label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .result.ad1 {
+            background-color: #fff3cd;
+        }
+        .result.ad2 {
+            background-color: #ffeeba;
+        }
+        .result.ad3 {
+            background-color: #f8d7da;
+        }
+        .footer {
+            background-color: #343a40;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .footer a {
+            color: #17a2b8;
+        }
+        select {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        .indent {
+            margin-left: 20px;
+        }
+        .bold {
+            color: #000;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Instrumento de Avaliação da Elegibilidade e Complexidade da Atenção Domiciliar (IAEC-AD)</h1>
+
+    <div class="section">
+        <h2>Indicações Clínicas Especiais ou Gatilhos</h2>
+        <p class="subtext">A seleção de um dos Gatilhos abaixo já classifica o usuário como AD2 ou AD3 respectivamente de acordo com a seleção, INDEPENDENTEMENTE da pontuação final</p>
+        <div class="options">
+            <label><input type="checkbox" id="ad2" value="5"> AD2: Necessidade de curativos complexos ou medicação parenteral (IM/EV/SC, exceto insulina) (5 pontos)</label>
+            <label><input type="checkbox" id="ad3" value="5"> AD3: Necessidade de tratamentos de alta complexidade ou intensidade no domicílio: transfusão sanguínea, paracentese, nutrição parenteral, cuidados paliativos sequenciais para manejo de sintomas mal controlados, dentre outros E/OU uso de ventilação mecânica invasiva (5 pontos)</label>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Uso do sistema de Saúde</h2>
+        <div class="bold">Histórico de internação hospitalar nos últimos três meses</div>
+        <select id="historico">
+            <option value="" selected disabled hidden>Selecione uma opção</option>
+            <option value="0">Nenhuma internação hospitalar nos últimos 3 meses (0 ponto)</option>
+            <option value="1">Pelo menos uma internação hospitalar nos últimos 3 meses (1 ponto)</option>
+            <option value="2">Duas ou mais internações hospitalares nos últimos 3 meses (2 pontos)</option>
+            <option value="4">Pelo menos uma internação em UTI nos últimos 3 meses (4 pontos)</option>
+        </select>
+
+        <div class="bold">Tempo de permanência hospitalar nos últimos três meses.</div>
+        <p class="subtext">Considerar o maior período no caso de múltiplas internações prévias.</p>
+        <select id="tempo">
+            <option value="" selected disabled hidden>Selecione uma opção</option>
+            <option value="0">Sem história de internação prévia (0 ponto)</option>
+            <option value="1">Até 07 dias (1 ponto)</option>
+            <option value="2">De 07 a 30 dias (2 pontos)</option>
+            <option value="3">Mais de 30 dias (3 pontos)</option>
+        </select>
+
+        <div class="bold">Frequência de procura por serviços de urgência nos últimos três meses (SAMU, UPA, Pronto-Socorro)</div>
+        <select id="frequencia">
+            <option value="" selected disabled hidden>Selecione uma opção</option>
+            <option value="0">Nenhuma procura por serviço de urgência nos últimos 3 meses (0 ponto)</option>
+            <option value="1">Procurou por serviço de urgência 02 vezes nos últimos 3 meses (1 ponto)</option>
+            <option value="2">Procurou por serviço de urgência de 03 a 04 vezes nos últimos 3 meses (2 pontos)</option>
+            <option value="3">Procurou por serviço de urgência 05 ou mais vezes nos últimos 3 meses (3 pontos)</option>
+        </select>
+    </div>
+
+    <div class="section">
+        <h2>Vulnerabilidade Social</h2>
+        <div class="bold">Relação morador-cômodo</div>
+        <p class="subtext">divida o número de moradores pelo número de cômodos, selecionando a opção apropriada</p>
+        <select id="relacao">
+            <option value="" selected disabled hidden>Selecione uma opção</option>
+            <option value="0">Menor que 01 (mais cômodos que moradores) (0 ponto)</option>
+            <option value="1">Igual a 01 (igual número de cômodos e moradores) (1 ponto)</option>
+            <option value="2">Maior que 01 (mais moradores que cômodos) (2 pontos)</option>
+        </select>
+    </div>
+
+    <div class="section">
+        <h2>Suporte Familiar / Cuidados</h2>
+        <div class="bold">Identifique o suporte de cuidado, seja da família ou de cuidadores.</div>
+        <select id="suporte">
+            <option value="" selected disabled hidden>Selecione uma opção</option>
+            <option value="0">Paciente com suporte familiar adequado (0 ponto)</option>
+            <option value="1">Paciente com suporte familiar inadequado (1 ponto)</option>
+        </select>
+    </div>
+
+    <div class="section">
+        <h2>Funcionalidade</h2>
+        <p class="subtext">Preencha este campo considerando a idade do paciente, para posterior identificação do grau de dependência, de acordo com sua faixa etária</p>
+        <div class="bold">Para crianças de até 07 anos, em relação ao Desenvolvimento Neuropsicomotor (DNPM)</div>
+        <select id="dnpm">
+            <option value="" selected disabled hidden>Selecione uma opção</option>
+            <option value="0">Acompanha o desenvolvimento neuropsicomotor conforme marcos para a idade (0 ponto)</option>
+            <option value="6">Não acompanha o desenvolvimento neuropsicomotor descrito para a idade, em "Alerta" ou "Provável atraso" (6 pontos)</option>
+        </select>
+
+        <div class="bold">Para crianças maiores de 07 anos e adultos, defina:</div>
+        <div class="indent">
+            <div class="bold"><em>Capacidade para tomar banho</em></div>
+            <select id="banho">
+                <option value="" selected disabled hidden>Selecione uma opção</option>
+                <option value="0">Independente – 0 ponto</option>
+                <option value="1">Dependente parcial – 1 ponto</option>
+                <option value="2">Dependente completo – 2 pontos</option>
+            </select>
+
+            <div class="bold"><em>Capacidade para alimentar-se</em></div>
+            <select id="alimentar">
+                <option value="" selected disabled hidden>Selecione uma opção</option>
+                <option value="0">Independente – 0 ponto</option>
+                <option value="1">Dependente parcial – 1 ponto</option>
+                <option value="2">Dependente completo – 2 pontos</option>
+            </select>
+
+            <div class="bold"><em>Capacidade para locomover-se</em></div>
+            <select id="locomover">
+                <option value="" selected disabled hidden>Selecione uma opção</option>
+                <option value="0">Independente – 0 ponto</option>
+                <option value="1">Dependente parcial – 1 ponto</option>
+                <option value="2">Dependente completo – 2 pontos</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Polifarmácia</h2>
+        <div class="bold">Uso de 5 ou mais medicações de uso contínuo, diariamente</div>
+        <select id="polifarmacia">
+            <option value="" selected disabled hidden>Selecione uma opção</option>
+            <option value="0">Não (menos de 4 medicações de uso diário) (0 ponto)</option>
+            <option value="1">Sim (5 ou mais medicações de uso diário) (1 ponto)</option>
+        </select>
+    </div>
+
+    <button onclick="calcularPontuacao()">Calcular Pontuação</button>
+
+    <div id="resultado" class="result"></div>
+
+    <div class="footer">
+        <p>Escala original elaborada pela Secretaria de Atenção Especializada em Saúde (SAES) do Distrito Federal, disponível na íntegra <a href="https://www.saude.df.gov.br/documents/37101/0/IAEC-AD.pdf/a5a16384-9e9a-e45b-8e63-381d934dcb9e?t=1711389563473" target="_blank">aqui</a></p>
+        <p>Página desenvolvida como parte de um projeto de qualificação do cuidado na Atenção Primária proposto por um Residente de Medicina de Família do município de Sapucaia do Sul</p>
+    </div>
+
+    <script>
+        function calcularPontuacao() {
+            let pontos = 0;
+            let ad2 = document.getElementById('ad2').checked;
+            let ad3 = document.getElementById('ad3').checked;
+
+            if (ad3) {
+                pontos += 5; // AD3 selecionado, adiciona 5 pontos
+            }
+            if (ad2) {
+                pontos += 5; // AD2 selecionado, adiciona 5 pontos
+            }
+
+            let historico = document.getElementById('historico');
+            let tempo = document.getElementById('tempo');
+            let frequencia = document.getElementById('frequencia');
+            let relacao = document.getElementById('relacao');
+            let suporte = document.getElementById('suporte');
+            let dnpm = document.getElementById('dnpm');
+            let banho = document.getElementById('banho');
+            let alimentar = document.getElementById('alimentar');
+            let locomover = document.getElementById('locomover');
+            let polifarmacia = document.getElementById('polifarmacia');
+
+            if (historico.value) pontos += parseInt(historico.value);
+            if (tempo.value) pontos += parseInt(tempo.value);
+            if (frequencia.value) pontos += parseInt(frequencia.value);
+            if (relacao.value) pontos += parseInt(relacao.value);
+            if (suporte.value) pontos += parseInt(suporte.value);
+            if (dnpm.value) pontos += parseInt(dnpm.value);
+            if (banho.value) pontos += parseInt(banho.value);
+            if (alimentar.value) pontos += parseInt(alimentar.value);
+            if (locomover.value) pontos += parseInt(locomover.value);
+            if (polifarmacia.value) pontos += parseInt(polifarmacia.value);
+
+            let resultado = document.getElementById('resultado');
+            resultado.innerHTML = `Pontuação Final: ${pontos}`;
+            resultado.className = 'result';
+
+            if (ad3 || pontos >= 16) {
+                resultado.classList.add('ad3');
+                resultado.innerHTML += ' - AD3';
+            } else if (ad2 || (pontos >= 10 && pontos <= 15)) {
+                resultado.classList.add('ad2');
+                resultado.innerHTML += ' - AD2';
+            } else if (pontos <= 9) {
+                resultado.classList.add('ad1');
+                resultado.innerHTML += ' - AD1';
+            }
+        }
+    </script>
+</body>
+</html>
