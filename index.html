@@ -79,6 +79,37 @@
             color: #000;
             font-weight: bold;
         }
+        .link-box {
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            margin-top: 20px;
+            background-color: #e9f5ff;
+        }
+        .link-box a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .link-box a:hover {
+            text-decoration: underline;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -195,6 +226,10 @@
     </div>
 
     <button onclick="calcularPontuacao()">Calcular Pontuação</button>
+
+    <div class="link-box">
+        <p>Para determinar a Frequência nas Visitas Domiciliares na APS <a href="https://carloscoimbra.github.io/Escala-de-Vulnerabilidade-Planejamento-VD-e-Escala-PPS/" target="_blank">clique aqui</a></p>
+    </div>
 
     <div id="resultado" class="result"></div>
 
